@@ -1,0 +1,35 @@
+.app_wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .sider_wrap {
+    position: fixed;
+    width: @menuWidth;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: width 0.2s;
+    outline: 1px solid red;
+  }
+  .main_wrap {
+    position: absolute;
+    width: calc(~'100% - @{menuWidth}');
+    height: 100%;
+    top: 0;
+    left: @menuWidth;
+    transition: all 0.2s;
+    z-index: 1;
+    .header_warp {
+      position: fixed;
+      width: 100%;
+      height: @headerHeight;
+      transition: all 0.2s;
+      outline: 1px solid green;
+    }
+    .content_warp {
+      padding: @headerHeight+10px 20px 0 20px;
+      height: 100%;
+      outline: 1px solid red;
+    }
+  }
+}
