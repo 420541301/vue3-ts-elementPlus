@@ -33,7 +33,6 @@ class Permission extends VuexModule implements PermissionState {
             name: '404',
             meta: {
                 hidden: true,
-                breadcrumb: false
             }
         }])
         // 渲染菜单的所有路由

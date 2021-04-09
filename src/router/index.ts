@@ -5,6 +5,7 @@ import type { App } from 'vue'
 
 import Layout from '@/layouts/index.vue'
 
+import componentsDemo from './modules/components-demo'
 /**
 * redirect: noredirect        当设置 noredirect 的时候该路由在面包屑导航中不可被点击
 * name:'router-name'          设定路由的名字，一定要填写不然使用<keep-alive>时会出现各种问题
@@ -18,13 +19,8 @@ import Layout from '@/layouts/index.vue'
     title: 'title'            设置该路由在侧边栏和面包屑中展示的名字
     icon: 'svg-name'          设置该路由的图标
     noCache: true             如果设置为true，则不会被 <keep-alive> 缓存(默认 false)
-    breadcrumb: false         如果设置为false，则不会在breadcrumb面包屑中显示(默认 true)
-    affix: true               如果设置为true，则会一直固定在tag项中(默认 false)
-    noTagsView: true           如果设置为true，则不会出现在tag中(默认 false)
     activeMenu: '/dashboard'  显示高亮的路由路径
-    followAuth: '/dashboard'  跟随哪个路由进行权限过滤
     showMainRoute: true       设置为true即使hidden为true，也依然可以进行路由跳转(默认 false)
-    followRoute: '/dashboard' 为路由设置跟随其他路由的权限
   }
 **/
 
@@ -50,7 +46,6 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
     meta: {
       hidden: true,
       title: '404',
-      noTagsView: true
     }
   },
   {
@@ -77,7 +72,6 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
           title: '首页',
           icon: 'dashboard',
           noCache: true,
-          affix: true
         }
       }
     ]
@@ -85,28 +79,7 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
 
 ]
 
-export const asyncRouterMap: AppRouteRecordRaw[] = [
-  {
-    path: '/components-demo',
-    component: Layout,
-    redirect: '/components-demo/editor',
-    name: 'ComponentsDemo',
-    meta: {
-      title: '功能组件',
-      alwaysShow: true
-    },
-    children: [
-      {
-        path: 'editor',
-        component: () => import('_p/components-demo/editor/index.vue'),
-        name: 'Editor',
-        meta: {
-          title: '富文本'
-        }
-      }
-    ]
-  },
-]
+export const asyncRouterMap: AppRouteRecordRaw[] = [...componentsDemo]
 
 const router = createRouter({
   history: createWebHashHistory(),

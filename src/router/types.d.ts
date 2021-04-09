@@ -5,14 +5,9 @@ export interface RouteMeta {
   title?: string
   icon?: string
   noCache?: boolean
-  breadcrumb?: boolean
-  affix?: boolean
   activeMenu?: string
-  parent?: string
-  noTagsView?: boolean
-  followAuth?: string
-  showMainRoute?: boolean
   followRoute?: string
+  showMainRoute?: boolean
 }
 
 export interface AppRouteRecordRaw extends Omit<RouteRecordRaw, 'meta'> {
