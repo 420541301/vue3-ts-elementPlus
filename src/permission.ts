@@ -54,6 +54,6 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach((to) => {
-    // document.title = getPageTitle(to.meta.title, appStore.title)
+    document.title = getPageTitle(to.meta.title as string, appStore.title)
     NProgress.done() // 结束进度条
 })
