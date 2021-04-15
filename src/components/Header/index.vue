@@ -1,6 +1,6 @@
 <template>
   <div class="header-warp">
-    <h1> header </h1>
+    <!-- <h1> header </h1> -->
   </div>
 </template>
 

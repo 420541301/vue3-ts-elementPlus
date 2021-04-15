@@ -38,18 +38,18 @@ export function deepClone(source: any, noClone: string[] = []): any {
 //   return index
 // }
 
-// /**
-//  * @param {String|Number} value 要验证的字符串或数值
-//  * @param {*} validList 用来验证的列表
-//  */
-// export function oneOf(value: string | number, validList: string[] | number[]): boolean {
-//   for (let i = 0; i < validList.length; i++) {
-//     if (value === validList[i]) {
-//       return true
-//     }
-//   }
-//   return false
-// }
+/**
+ * @param {String|Number} value 要验证的字符串或数值
+ * @param {*} validList 用来验证的列表
+ */
+export function oneOf(value: string | number, validList: string[] | number[]): boolean {
+  for (let i = 0; i < validList.length; i++) {
+    if (value === validList[i]) {
+      return true
+    }
+  }
+  return false
+}
 
 // /**
 //  * 生成随机字符串
@@ -75,39 +75,39 @@ export function param2Obj(url: string) {
   }
   return JSON.parse(
     '{"' +
-      decodeURIComponent(search)
-        .replace(/"/g, '\\"')
-        .replace(/&/g, '","')
-        .replace(/=/g, '":"')
-        .replace(/\+/g, ' ') +
-      '"}'
+    decodeURIComponent(search)
+      .replace(/"/g, '\\"')
+      .replace(/&/g, '","')
+      .replace(/=/g, '":"')
+      .replace(/\+/g, ' ') +
+    '"}'
   )
 }
 
-// /**
-//  * @param {date} time 需要转换的时间
-//  * @param {String} fmt 需要转换的格式 如 yyyy-MM-dd、yyyy-MM-dd HH:mm:ss
-//  */
-// export function formatTime(time: any, fmt: string) {
-//   if (!time) return ''
-//   else {
-//     const date = new Date(time)
-//     const o = {
-//       'M+': date.getMonth() + 1,
-//       'd+': date.getDate(),
-//       'H+': date.getHours(),
-//       'm+': date.getMinutes(),
-//       's+': date.getSeconds(),
-//       'q+': Math.floor((date.getMonth() + 3) / 3),
-//       'S': date.getMilliseconds()
-//     }
-//     if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
-//     for (const k in o) {
-//       if (new RegExp('(' + k + ')').test(fmt)) {
-//         fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : ((
-//           '00' + o[k]).substr(('' + o[k]).length)))
-//       }
-//     }
-//     return fmt
-//   }
-// }
+/**
+ * @param {date} time 需要转换的时间
+ * @param {String} fmt 需要转换的格式 如 yyyy-MM-dd、yyyy-MM-dd HH:mm:ss
+ */
+export function formatTime(time: any, fmt: string) {
+  if (!time) return ''
+  else {
+    const date = new Date(time)
+    const o = {
+      'M+': date.getMonth() + 1,
+      'd+': date.getDate(),
+      'H+': date.getHours(),
+      'm+': date.getMinutes(),
+      's+': date.getSeconds(),
+      'q+': Math.floor((date.getMonth() + 3) / 3),
+      'S': date.getMilliseconds()
+    }
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
+    for (const k in o) {
+      if (new RegExp('(' + k + ')').test(fmt)) {
+        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : ((
+          '00' + o[k]).substr(('' + o[k]).length)))
+      }
+    }
+    return fmt
+  }
+}
